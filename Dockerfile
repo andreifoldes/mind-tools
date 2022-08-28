@@ -3,12 +3,6 @@ FROM debian:latest
 # Install necessary linux packages from apt-get
 RUN apt-get update --fix-missing && apt-get install -y eatmydata && apt-get install -y --no-install-recommends python2.7
 
-RUN apt-get update && \
-    mkdir /dev/fuse && \
-    chmod 777 /dev/fuse && \
-    apt-get install -y python-mvpa2 && \
-    apt-get remove -f -y --purge fuse
-
 RUN eatmydata apt-get install -y wget bzip2 ca-certificates \
     libglib2.0-0 libxext6 libsm6 libxrender1 \
     git \
