@@ -31,6 +31,9 @@ ENV PATH /opt/conda/bin:$PATH
 # Create compatibility Python 2.7 environment
 RUN conda create -n py27 python=2.7
 RUN ["/bin/bash", "-c", "source activate py27 && \
+    conda install -c bioconda pymvpa
+
+RUN ["/bin/bash", "-c", "source activate py27 && \
     conda install -y numpy \
     scipy \
     pandas \
