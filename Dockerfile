@@ -1,7 +1,7 @@
 FROM debian:latest
 
 # Install necessary linux packages from apt-get
-RUN apt-get update --fix-missing && apt-get install -y eatmydata && apt-get install -y --no-install-recommends python2.7 &&
+RUN apt-get update --fix-missing && apt-get install -y eatmydata && apt-get install -y --no-install-recommends python2.7 && \
 apt-get install -y python-mvpa2
 
 RUN eatmydata apt-get install -y wget bzip2 ca-certificates \
