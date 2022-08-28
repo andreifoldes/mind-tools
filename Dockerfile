@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM debian:buster-slim
 
 # Install necessary linux packages from apt-get
 RUN apt-get update --fix-missing && apt-get install -y eatmydata && apt-get install -y --no-install-recommends python2.7
