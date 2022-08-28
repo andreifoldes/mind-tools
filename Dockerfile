@@ -9,25 +9,9 @@ RUN apt-get update && \
     apt-get install -y python-mvpa2 && \
     apt-get remove -f -y --purge fuse
 
-RUN eatmydata apt-get install -y wget bzip2 ca-certificates \
-    libglib2.0-0 libxext6 libsm6 libxrender1 \
-    git \
-    libfreetype6-dev \
-    swig \
-    mpich \
-    pkg-config \
-    gcc \
-    wget \
-    curl \
-    vim \
-    nano \
-    libgl1-mesa-glx \
-    ffmpeg \
-    fonts-liberation
-
 # Install anaconda
 RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
-    wget --quiet https://repo.continuum.io/archive/Anaconda3-5.2.0-Linux-x86_64.sh -O ~/anaconda.sh && \
+    wget --quiet https://repo.continuum.io/archive/Anaconda3-4.2.0-Linux-x86_64.sh -O ~/anaconda.sh && \
     /bin/bash ~/anaconda.sh -b -p /opt/conda && \
     rm ~/anaconda.sh
 
@@ -37,7 +21,7 @@ ENV PATH /opt/conda/bin:$PATH
 # Create compatibility Python 2.7 environment
 RUN conda create -n py27 python=2.7
 RUN ["/bin/bash", "-c", "source activate py27 && \
-    conda install -c conda-forge pymvpa"]
+    conda install -c conda-forge pymvpa2"]
 
 RUN ["/bin/bash", "-c", "source activate py27 && \
     conda install -y numpy \
